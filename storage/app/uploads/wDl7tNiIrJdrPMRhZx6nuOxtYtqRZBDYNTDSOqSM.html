@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Task 5.10</title>
+	<script>
+    let slide_show = new Array(9);
+    for (let i = 0; i < 9; i++) {
+      let fileName = "harbour" + i + ".jpg";
+      slide_show[i] = new Image();
+      console.log(i, fileName);
+      slide_show[i].src = fileName;
+      console.log(i, fileName);
+    }
+
+    let j = 0;
+
+    function forwards() {
+      j++;
+      if (j === 9) j = 0;
+      console.log(j);
+      document.images[0].src = slide_show[j].src;
+    }
+
+    function backwards() {
+      j--;
+      if (j < 0) j = 8;
+      console.log(j);
+      document.images[0].src = slide_show[j].src;
+    }
+  </script>
+</head>
+<body>
+<h1>Slide Show Demo using HTML</h1>
+<img src="harbour0.jpg" alt="harbour0" usemap="#boats">
+<a href="javascript:void(0)">
+  <map name="boats">
+    <area shape="rect" coords="0, 0, 215, 432" alt="back" onclick="backwards()">
+    <area shape="rect" coords="215, 0, 324, 432" alt="forward" onclick="forwards()">
+  </map>
+</a>
+</body>
+</html>
